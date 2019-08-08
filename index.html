@@ -1,0 +1,83 @@
+
+
+
+
+<style>
+  div {
+    background-color: rebeccapurple;
+    color: white;
+    margin: 12px;
+    padding: 20px;
+  }
+
+  input {
+    margin-right: 8px;
+  }
+
+  .game{
+    width: 200px;
+    height: 200px;
+    margin: 12px auto 12px auto;
+    padding: 0;
+    position: relative;
+  }
+
+  .orangeAutumn {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    background-color: orange;
+    position: absolute;
+  }
+</style>
+
+<script>
+
+  function getRandPos() {
+    return '' + Math.floor(Math.random() * 151) + 'px';
+  }
+
+  function geeksimplifiedStartGame() {
+    const chador = document.getElementById('chador');
+    //const kearnsyUK = chador.value;
+    const kearnsyUK = 'orange';
+
+    //if(kearnsyUK !== 'orange' && kearnsyUK !== 'aqua'){
+    //  alert('only orange or aqua :P');
+    //} else {
+      const orangeAutumn = document.createElement('div');
+      orangeAutumn.classList.add('orangeAutumn');
+      orangeAutumn.style.backgroundColor = kearnsyUK;
+      orangeAutumn.style.top = getRandPos();
+      orangeAutumn.style.left = getRandPos();
+      document.getElementById('game').append(orangeAutumn);
+
+      const target = document.createElement('div');
+      let targetColor = 'orange';
+      target.classList.add('orangeAutumn');
+      if (kearnsyUK === 'orange') {
+        targetColor = 'aqua';
+      }
+      target.style.backgroundColor = targetColor
+      target.style.top = getRandPos();
+      target.style.left = getRandPos();
+      document.getElementById('game').append(target);
+    //}
+
+    
+  }
+
+</script>
+
+<div>
+  Move It!
+</div>
+
+<div>
+  <input id="chador"/>
+  <button onclick="geeksimplifiedStartGame()">start</button>
+</div>
+
+<div id="game" class="game"></div>
+
